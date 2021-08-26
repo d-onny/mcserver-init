@@ -19,7 +19,7 @@ echo "eula=true" > eula.txt
 
 #Start server
 chmod +x launch.sh
-./launch.sh
+java -server -Xms4096M -Xmx4096M -jar forge-1.12.2-14.23.5.2855.jar nogui
 
 #For server crash or container exit
 echo "URL OF BUILD BELOW:"
