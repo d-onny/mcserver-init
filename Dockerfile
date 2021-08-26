@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y python3 \
     wget \
     unzip
 
-RUN mkdir /server
+RUN mkdir -p /server/mount
 
 WORKDIR /server
 

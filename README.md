@@ -5,5 +5,5 @@
 ## Without URL passed as env variable to container
 `docker run --name mcserver .`
 
-## Without URL passed as env variable to container
+## With URL passed as env variable to container
 `docker run --name mcserver --env URL=ENTER_URL_HERE .`

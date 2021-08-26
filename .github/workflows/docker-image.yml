@@ -14,15 +14,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Get current date
+      id: date
+      run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
     - name: docker login
       env:
         DOCKER_USER: ${{secrets.DOCKER_USER}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
-        CURRENT_DATE: $(date +%s)
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the docker image
-      run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USER}}/mcserver
+      run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USER}}/mcserver:{{steps.date.outputs.date}}
       
     - name: Docker Push
-      run: docker push ${{secrets.DOCKER_USER}}/mcserver
+      run: docker push ${{secrets.DOCKER_USER}}/mcserver:{{steps.date.outputs.date}}
+      
