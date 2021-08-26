@@ -7,6 +7,8 @@ if [[ ! -v URL ]]; then
   set -a; source url.env; set +a
 fi
 
+cd /server/mount
+
 #grab files and unzip
 wget "$URL" -O temp.zip
 unzip temp.zip
