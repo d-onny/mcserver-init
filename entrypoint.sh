@@ -11,7 +11,7 @@ cd /server/mount
 
 #grab files and unzip
 wget "$URL" -O temp.zip
-unzip temp.zip
+unzip -o temp.zip
 rm temp.zip
 
 #eula.txt needed to start server
